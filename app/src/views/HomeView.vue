@@ -5,18 +5,22 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import BoroughData from '@/components/BoroughData.vue'
-import { Chart } from 'chart.js'
-const doeInfo = ref([])
+let doeInfo = ref([])
 async function getDoeInfo() {
-  const res = await fetch('https://data.cityofnewyork.us/resource/uq7m-95z8.json')
-  const data = await res.json()
-  doeInfo.value = data.results
+  try {
+    let res = await fetch('https://data.cityofnewyork.us/resource/uq7m-95z8.json?$limit=40')
+    let data = await res.json()
+    doeInfo.value = data
+  } catch (error) {
+    alert('failure to catch the doe data')
+  }
 }
 onMounted(() => {
   getDoeInfo()
 })
+
 </script>
 
 <style scoped></style>
