@@ -5,23 +5,28 @@
       <ButtonsHeader>
         <RouterLink
           to="/borough"
-          class="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded border-2 border-black"
+          class="m-2 bg-[#a06ea0] hover:bg-[#703e70] text-white font-bold py-2 px-4 rounded inline-block"
         >
           <button>Borough</button>
         </RouterLink>
         <RouterLink
           to="/graduation"
-          class="m-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded border-2 border-black"
+          class="m-2 bg-[#b21f3d] hover:bg-[#7b182c] text-white font-bold py-2 px-4 rounded inline-block"
         >
           <button>Graduation</button>
         </RouterLink>
         <div class="flex flex-col items-center my-4">
-          <label for="search" class="mb-2 text-black">Search by School Name</label>
-          <input type="text" id="search" v-model="search" class="border-2 border-black p-2 w-1/2" />
+          <label for="search" class="mb-2 text-[#2d3a5d]">Search by School Name</label>
+          <input
+            type="text"
+            id="search"
+            v-model="search"
+            class="border-2 border-[#2d3a5d] p-2 w-1/2"
+          />
         </div>
       </ButtonsHeader>
-      <div class="bg-gray-600 flex flex-wrap justify-center h-[70vh] overflow-y-auto">
-        <SchoolCard v-for="school in searchSchools" :key="school.location" :school="school" />
+      <div class="bg-[#f9f5eb] flex flex-wrap justify-center gap-5 p-5 h-[70vh] overflow-y-auto">
+        <DoeCards v-for="school in searchSchools" :key="school.location" :school="school" />
       </div>
     </main>
   </div>
@@ -31,6 +36,7 @@
 import MainHeader from '@/components/MainHeader.vue'
 import ButtonsHeader from '@/components/ButtonsHeader.vue'
 import { ref, onMounted, computed } from 'vue'
+import DoeCards from '@/components/DoeCards.vue'
 let schools = ref([])
 
 async function getSchools() {

@@ -1,6 +1,8 @@
 <template>
-  <div class="h-[15vh] flex items-center justify-center border-2 border-black bg-blue-200">
-    <slot> </slot>
+  <div class="text-[#2d3a5d] h-[15vh] flex items-center justify-center bg-[#fcb6a4]">
+    <div class="flex gap-4">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
