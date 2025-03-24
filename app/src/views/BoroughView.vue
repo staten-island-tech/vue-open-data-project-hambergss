@@ -30,7 +30,7 @@ let schools = ref([])
 
 async function getSchools() {
   try {
-    let res = await fetch('https://data.cityofnewyork.us/resource/uq7m-95z8.json?$limit=100')
+    let res = await fetch('https://data.cityofnewyork.us/resource/uq7m-95z8.json?$limit=300')
     let data = await res.json()
     schools.value = data
   } catch (error) {
